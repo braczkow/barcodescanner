@@ -125,6 +125,10 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         Camera.Size optimalSize = getOptimalPreviewSize();
         Camera.Parameters parameters = mCameraWrapper.mCamera.getParameters();
         parameters.setPreviewSize(optimalSize.width, optimalSize.height);
+
+        //parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
+        parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
+
         mCameraWrapper.mCamera.setParameters(parameters);
         adjustViewSize(optimalSize);
     }
@@ -298,7 +302,14 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     // Mimic continuous auto-focusing
     Camera.AutoFocusCallback autoFocusCB = new Camera.AutoFocusCallback() {
         public void onAutoFocus(boolean success, Camera camera) {
-            scheduleAutoFocus();
+            camera.cancelAutoFocus();
+        }
+    };
+
+    Camera.AutoFocusMoveCallback autoFocusMoveCB = new Camera.AutoFocusMoveCallback() {
+        @Override
+        public void onAutoFocusMoving(boolean b, Camera camera) {
+
         }
     };
 
