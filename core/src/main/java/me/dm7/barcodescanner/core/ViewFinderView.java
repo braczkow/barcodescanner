@@ -124,17 +124,29 @@ public class ViewFinderView extends View implements IViewFinder {
     public void drawViewFinderBorder(Canvas canvas) {
         Rect framingRect = getFramingRect();
         
-        canvas.drawLine(framingRect.left - 1, framingRect.top - 1, framingRect.left - 1, framingRect.top - 1 + mBorderLineLength, mBorderPaint);
-        canvas.drawLine(framingRect.left - 1, framingRect.top - 1, framingRect.left - 1 + mBorderLineLength, framingRect.top - 1, mBorderPaint);
+//        canvas.drawLine(framingRect.left - 1, framingRect.top - 1, framingRect.left - 1, framingRect.top - 1 + mBorderLineLength, mBorderPaint);
+//        canvas.drawLine(framingRect.left - 1, framingRect.top - 1, framingRect.left - 1 + mBorderLineLength, framingRect.top - 1, mBorderPaint);
+//
+//        canvas.drawLine(framingRect.left - 1, framingRect.bottom + 1, framingRect.left - 1, framingRect.bottom + 1 - mBorderLineLength, mBorderPaint);
+//        canvas.drawLine(framingRect.left - 1, framingRect.bottom + 1, framingRect.left - 1 + mBorderLineLength, framingRect.bottom + 1, mBorderPaint);
+//
+//        canvas.drawLine(framingRect.right + 1, framingRect.top - 1, framingRect.right + 1, framingRect.top - 1 + mBorderLineLength, mBorderPaint);
+//        canvas.drawLine(framingRect.right + 1, framingRect.top - 1, framingRect.right + 1 - mBorderLineLength, framingRect.top - 1, mBorderPaint);
+//
+//        canvas.drawLine(framingRect.right + 1, framingRect.bottom + 1, framingRect.right + 1, framingRect.bottom + 1 - mBorderLineLength, mBorderPaint);
+//        canvas.drawLine(framingRect.right + 1, framingRect.bottom + 1, framingRect.right + 1 - mBorderLineLength, framingRect.bottom + 1, mBorderPaint);
 
-        canvas.drawLine(framingRect.left - 1, framingRect.bottom + 1, framingRect.left - 1, framingRect.bottom + 1 - mBorderLineLength, mBorderPaint);
-        canvas.drawLine(framingRect.left - 1, framingRect.bottom + 1, framingRect.left - 1 + mBorderLineLength, framingRect.bottom + 1, mBorderPaint);
+        canvas.drawLine(framingRect.left, framingRect.top, framingRect.left, framingRect.top + mBorderLineLength, mBorderPaint);
+        canvas.drawLine(framingRect.left, framingRect.top, framingRect.left + mBorderLineLength, framingRect.top, mBorderPaint);
 
-        canvas.drawLine(framingRect.right + 1, framingRect.top - 1, framingRect.right + 1, framingRect.top - 1 + mBorderLineLength, mBorderPaint);
-        canvas.drawLine(framingRect.right + 1, framingRect.top - 1, framingRect.right + 1 - mBorderLineLength, framingRect.top - 1, mBorderPaint);
+        canvas.drawLine(framingRect.left, framingRect.bottom, framingRect.left, framingRect.bottom - mBorderLineLength, mBorderPaint);
+        canvas.drawLine(framingRect.left, framingRect.bottom, framingRect.left + mBorderLineLength, framingRect.bottom, mBorderPaint);
 
-        canvas.drawLine(framingRect.right + 1, framingRect.bottom + 1, framingRect.right + 1, framingRect.bottom + 1 - mBorderLineLength, mBorderPaint);
-        canvas.drawLine(framingRect.right + 1, framingRect.bottom + 1, framingRect.right + 1 - mBorderLineLength, framingRect.bottom + 1, mBorderPaint);
+        canvas.drawLine(framingRect.right, framingRect.top, framingRect.right, framingRect.top + mBorderLineLength, mBorderPaint);
+        canvas.drawLine(framingRect.right, framingRect.top, framingRect.right - mBorderLineLength, framingRect.top, mBorderPaint);
+
+        canvas.drawLine(framingRect.right, framingRect.bottom, framingRect.right, framingRect.bottom - mBorderLineLength, mBorderPaint);
+        canvas.drawLine(framingRect.right, framingRect.bottom, framingRect.right - mBorderLineLength, framingRect.bottom, mBorderPaint);
     }
 
     public void drawLaser(Canvas canvas) {
